@@ -1,25 +1,45 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react'
+import NavBar from './components/NavBar';
+import Register from './components/Register';
+import Login from './pages/Login';
+// import './App.css';
 
-function App() {
+const App = () => {
+  const [currentForm, setCurrentForm] = useState('login');
+  
+  const toggleForm = (formName) => { 
+    setCurrentForm(formName);
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <NavBar />
+        {
+        currentForm === "login" ?  <Login onFormSwitch={toggleForm}/> : <Register onFormSwitch={toggleForm} />
+        }
     </div>
+    
   );
 }
+
+
+
+
+
+
+//   return (
+//     <section className="App">
+//         <NavBar />
+//         <div class="container"> 
+//           <h1>
+//             Create a New Profile!
+//           </h1>
+//           <div>
+//             currentForm === login ?  <Login /> : <NewUserForm />
+//           </div>
+//         </div>
+//     </section>
+//   );
+// }
 
 export default App;
