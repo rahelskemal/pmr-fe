@@ -6,7 +6,7 @@ import Register from "../components/Register";
 
 const Kurl = "http://127.0.0.1:5000/"
 
-function Profile() {
+function UserProfile() {
     const [userNameData, setUserNameData] = useState(null);
 
     const [userMileData, setUserMileData] = useState([]);
@@ -24,3 +24,5 @@ function Profile() {
         });
     }, [userNameData]);
 };
+
+export default UserProfile;
