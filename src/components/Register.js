@@ -1,24 +1,40 @@
 import React, { useState } from "react";
 import { Navigate , useNavigate } from "react-router-dom";
 import NavBar from "./NavBar";
+import { useAuth } from "../hooks/useAuth";
 
 
 const Register = (props) => {
     const [email, setEmail] = useState(" ");
-    const [pass, setPass] = useState(" ");
-    const [name, setName] = useState('');
+    const [password, setPassword] = useState(" ");
+    const [firstName, setFirstName] = useState('');
+    const [lastName, setLastName] = useState('')
     const [street, setStreet] = useState('');
+    const [state, setState] = useState('')
     const [city, setCity] = useState('');
-    const [zipcode, setZipcode] = useState('');
+    const [zip, setZipcode] = useState('');
     const [startDate, setStartDate] = useState('');
     const [goalDate, setGoalDate] = useState('');
     const navigate = useNavigate();
+    const { AddUser } = useAuth();
 
 
     const handleSubmit = (e) => {
         e.preventDefault();
         // console.log(email);
-        navigate('/create')
+        AddUser({firstName,
+        lastName,
+        email,
+        password,
+        startDate,
+        goalDate,
+        city,
+        street,
+        zip,
+        state,
+        })
+        // navigate('/create')
+        
     };
     // console.log(props.onFormSwitch)
     return (
@@ -26,8 +42,12 @@ const Register = (props) => {
             <NavBar />
             <form onSubmit={handleSubmit}>
                 <div className="form-group">
-                    <label hmtlfor="fullName">Full Name</label>
-                    <input value={name} onChange={(e) => setName(e.target.value)}type="text" className="form-control" id="text" aria-describedby="fullname"></input>
+                    <label hmtlfor="firstName">First Name</label>
+                    <input value={firstName} onChange={(e) => setFirstName(e.target.value)}type="text" className="form-control" id="text" aria-describedby="firstname"></input>
+                </div>
+                <div className="form-group">
+                    <label hmtlfor="lastName">Last Name</label>
+                    <input value={lastName} onChange={(e) => setLastName(e.target.value)}type="text" className="form-control" id="text" aria-describedby="lastname"></input>
                 </div>
                 <div className="form-group">
                     <label hmtlfor="email">Email</label>
@@ -35,7 +55,7 @@ const Register = (props) => {
                 </div>
                 <div className="form-group">
                     <label hmtlfor="password">Password</label>
-                    <input value={pass} onChange={(e) => setPass(e.target.value)}type="password" className="form-control" id="exampleInputPassword1"></input>
+                    <input value={password} onChange={(e) => setPassword(e.target.value)}type="password" className="form-control" id="exampleInputPassword1"></input>
                 </div>
                 <div className="form-group">
                     <label hmtlfor="street">Street</label>
@@ -47,7 +67,11 @@ const Register = (props) => {
                 </div>
                 <div className="form-group">
                     <label hmtlfor="zipcode">Zip Code</label>
-                    <input value={zipcode} onChange={(e) => setZipcode(e.target.value)}type="number" className="form-control" id="text" aria-describedby="zipcode"></input>
+                    <input value={zip} onChange={(e) => setZipcode(e.target.value)}type="number" className="form-control" id="text" aria-describedby="zipcode"></input>
+                </div>
+                <div className="form-group">
+                    <label hmtlfor="state">State</label>
+                    <input value={state} onChange={(e) => setState(e.target.value)}type="text" className="form-control" id="text" aria-describedby="zipcode"></input>
                 </div>
                 <div className="form-group">
                     <label hmtlfor="start date">Start Date</label>

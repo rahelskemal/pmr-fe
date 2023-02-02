@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Navigate , useNavigate } from "react-router-dom";
 import NavBar from "./NavBar";
-// import { useAuth } from '../hooks/useAuth';
+import { useAuth } from '../hooks/useAuth';
 // import UserComponent from "../Router";
 
 
@@ -11,27 +11,30 @@ const Login = (props) => {
     const [email, setEmail] = useState(" ");
     const [password, setPass] = useState(" ");
     const navigate = useNavigate(); 
-
+    const { login , userData } = useAuth();
+    
     // const { login } = useAuth(); 
 
+// MAKE AN API CALL TO CHECK IF THE UN AND PASS MATCHES THE CURRENT ONE 
 
     const handleSubmit = (e) => {
         e.preventDefault();
         let authUser = false;
         // console.log(props.data)
-        for (let user of props.data) {
-            if (user.email === email.email && 
-                user.password === password.password
-                ) { 
-                    authUser = true;
-                    navigate("/profile");
-                    break;    
-                }
-            }
-            if (!authUser) {
-                navigate('/register')
+        for (let user of userData) {
+            if (user.email === email && 
+                user.password === password) { 
+            
+                authUser = true;
+                login(user)
+                
+                break;    
             }
         };
+        if (!authUser) {
+            navigate('/register')
+        }
+    };
 
     return (
         <div>

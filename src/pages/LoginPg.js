@@ -5,13 +5,13 @@ import Login from '../components/Login';
 
 const LogIn = () => {
     // const { userData, logIn, logOut } = useOutletContext();
-    const data = useOutletContext(); 
-    console.log(data)
-    const { userData, logIn, logOut } = data
+    // const data = useOutletContext(); 
+    // console.log(data)
+    // const { userData, logIn, logOut } = data
 
     return (
         <div>
-            <Login data={userData} onlogIn={logIn} onlogOut={logOut} />
+            <Login />
         </div>
     );
 };
