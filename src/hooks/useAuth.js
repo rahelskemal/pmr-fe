@@ -10,14 +10,18 @@ export const AuthProvider = ({ children }) =>
     const navigate = useNavigate();
     const location = useLocation();
 
-    useEffect (() => {
-        const lsUser = getItemFromLocalStorage('user');
+    useEffect (() => { 
+        if (location.pathname !== "/register" && location.pathname !== "/login"){
+            const lsUser = getItemFromLocalStorage('user');
 
-        if(lsUser) {
-            setUser(lsUser)
-            navigate(location.pathname);
+            if(lsUser) {
+                setUser(lsUser)
+                navigate(location.pathname);
+            } else {
+                navigate("/login");
+            }
         } else {
-            navigate("/login");
+            navigate(location.pathname);
         }
     }, []);
 

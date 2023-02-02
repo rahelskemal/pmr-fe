@@ -10,7 +10,7 @@ export const setItemInLocalStorage = (keyName, value) => {
 export const getItemFromLocalStorage = (keyName) => {
     try {
         const value=window.localStorage.getItem(keyName);
-        if (value) {
+        if (value && value !== "undefined") {
             return JSON.parse(value);
         }
         return null;

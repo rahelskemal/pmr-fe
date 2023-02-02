@@ -1,15 +1,18 @@
 import React, { useState } from 'react'
 import NavBar from './components/NavBar';
 import Register from './components/Register';
-import Login from './pages/Login';
+import Login from './components/Login';
 // import './App.css';
 
 const App = () => {
   const [currentForm, setCurrentForm] = useState('login');
   
   const toggleForm = (formName) => { 
+    console.log(formName)
     setCurrentForm(formName);
-  }
+  };
+
+    console.log("hello");
 
   return (
     <div className="App">
