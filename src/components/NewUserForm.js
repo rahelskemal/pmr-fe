@@ -102,50 +102,50 @@ const NewUserForm = (props) => {
 
     return (
         <section className="new-user-form_container">
-            <div class="container">
+            <div className="container">
             <form className='new-board-form__form' onSubmit={handleFormSubmit}>
-                <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <label for="inputEmail4">email</label>
-                        <input type="email" value={formFields.email} onChange={handleEmailChange} class="form-control" id="inputemail4" required></input>
+                <div className="form-row">
+                    <div className="form-group col-md-6">
+                        <label htmlFor="inputEmail4">email</label>
+                        <input type="email" value={formFields.email} onChange={handleEmailChange} className="form-control" id="inputemail4" required></input>
                     </div>
-                    <div class="form-group col-md-6">
-                        <label for="inputpassword4">password</label>
-                        <input type="password" value={formFields.password} onChange={handlePassChange} placeholder="**********" class="form-control" id="inputfirstNamel4" required></input>
+                    <div className="form-group col-md-6">
+                        <label htmlFor="inputpassword4">password</label>
+                        <input type="password" value={formFields.password} onChange={handlePassChange} placeholder="**********" className="form-control" id="inputfirstNamel4" required></input>
                     </div>
-                    <div class="form-group col-md-6">
-                        <label for="inputname4">First Name</label>
-                        <input type="text" value={formFields.firstName} onChange={handleNameChange} class="form-control" id="inputfirstNamel4" required></input>
+                    <div className="form-group col-md-6">
+                        <label htmlFor="inputname4">First Name</label>
+                        <input type="text" value={formFields.firstName} onChange={handleNameChange} className="form-control" id="inputfirstNamel4" required></input>
                     </div>
-                        <div class="form-group col-md-6">
-                        <label for="inputlastname4">Last Name</label>
-                    <input type="text" value={formFields.lastName} onChange={handleLastNameChange} class="form-control" id="inputlastName4" required></input>
+                        <div className="form-group col-md-6">
+                        <label htmlFor="inputlastname4">Last Name</label>
+                    <input type="text" value={formFields.lastName} onChange={handleLastNameChange} className="form-control" id="inputlastName4" required></input>
                     </div>
                 </div>
-                    <div class="form-group">
-                        <label for="inputAddress">Address</label>
-                        <input type="text" value={formFields.street} onChange={handleStreetChange} class="form-control" id="inputAddress" placeholder="1234 Main St" required></input>
+                    <div className="form-group">
+                        <label htmlFor="inputAddress">Address</label>
+                        <input type="text" value={formFields.street} onChange={handleStreetChange} className="form-control" id="inputAddress" placeholder="1234 Main St" required></input>
                     </div>
-                    <div class="form-group">
-                        <label for="inputAddress2">Address 2</label>
-                        <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor"></input>
+                    <div className="form-group">
+                        <label htmlFor="inputAddress2">Address 2</label>
+                        <input type="text" className="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor"></input>
                     </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                        <label for="inputCity">City</label>
-                        <input type="text" value={formFields.city} onChange={handleCityChange}class="form-control" id="inputCity" required></input>
+                    <div className="form-row">
+                        <div className="form-group col-md-6">
+                        <label htmlFor="inputCity">City</label>
+                        <input type="text" value={formFields.city} onChange={handleCityChange}className="form-control" id="inputCity" required></input>
                     </div>
-                        <div class="form-group col-md-4">
-                        <label for="inputState">State</label>
-                        <select id="inputState" value={formFields.state} onChange={handleStateChange} class="form-control" required>
+                        <div className="form-group col-md-4">
+                        <label htmlFor="inputState">State</label>
+                        <select id="inputState" value={formFields.state} onChange={handleStateChange} className="form-control" required>
                         <option selected>Choose...</option>
                         <option>Washington</option>
                         <option>California</option>
                     </select>
                     </div>
-                        <div class="form-group col-md-2">
-                        <label for="inputZip">Zip</label>
-                        <input type="text" value={formFields.zip} onChange={handleZipChange} class="form-control" id="inputZip" required></input>
+                        <div className="form-group col-md-2">
+                        <label htmlFor="inputZip">Zip</label>
+                        <input type="text" value={formFields.zip} onChange={handleZipChange} className="form-control" id="inputZip" required></input>
                         </div>
                     </div>
                     <div>
@@ -153,7 +153,7 @@ const NewUserForm = (props) => {
                         < TableDatePicker /> 
                     </div>
                     <div>
-                    <button onClick={()=> props.onFormSwitch()} type="submit" class="btn btn-primary">Create Profile</button>
+                    <button onClick={()=> props.onFormSwitch()} type="submit" className="btn btn-primary">Create Profile</button>
                     </div>
                     </form>
                     </div>

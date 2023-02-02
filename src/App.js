@@ -12,7 +12,6 @@ const App = () => {
     setCurrentForm(formName);
   };
 
-    console.log("hello");
 
   return (
     <div className="App">

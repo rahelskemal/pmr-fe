@@ -6,13 +6,13 @@ import NavBar from "../components/NavBar";
 const Dashboard = () => {
     return (
         <secion>
-        <div class="jumbotron jumbotron-fluid">
+        <div className="jumbotron jumbotron-fluid">
             <div>
                 <NavBar />
             </div>
-            <div class="container">
-                <h1 class="display-4">Welcome to Plan My Run</h1>
-                <p class="lead">A site created to help you train for your first long run!</p>
+            <div className="container">
+                <h1 className="display-4">Welcome to Plan My Run</h1>
+                <p className="lead">A site created to help you train for your first long run!</p>
             </div>
         </div>
         <div>
