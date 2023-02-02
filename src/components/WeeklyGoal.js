@@ -1,27 +1,22 @@
 import React from 'react';
 import { useAuth } from '../hooks/useAuth';
+import NavBar from './NavBar';
 
-const WeeklyGoal = (user) => {
-    const { login, userData , weeklyMilesList } = useAuth();
-    
-    // if (login(user))
-    console.log(userData)
-    const lenOfList = weeklyMilesList?.length || 0;
-
-    for (var i = 0; i < lenOfList; i++){
-        console.log(weeklyMilesList[i]);
-    };
-
-    // WeeklyGoal.forEach(goal => console.log(goal));
-
-
+const WeeklyGoal = () => {
+    const { weeklyMilesList } = useAuth();
 
     return (
         <div>
-            <h2>Your Weekly Running Goal:{weeklyMilesList}</h2>
-            {/* <p>{goal} miles</p> */}
+            <div> 
+                <NavBar /> 
+            </div>
+            <ul>
+                {weeklyMilesList && weeklyMilesList.map((miles, index) => (
+                <li key={index}> Week {index + 1}: {miles} miles</li>
+))}         
+                </ul>
         </div>
-    );
-};
+        );
+    };
 
 export default WeeklyGoal;

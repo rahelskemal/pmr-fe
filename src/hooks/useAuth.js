@@ -11,8 +11,8 @@ export const AuthProvider = ({ children }) =>
 {
     const [userData, setUserData] = useState([]);
     const [user, setUser] = useState(null);
-    const [weeklyMilesList, setWeeklyMilesList] = useState([]) 
-    const [parkList, setParkList] = useState([])
+    // const [weeklyMilesList, setWeeklyMilesList] = useState([]) 
+    // const [parkList, setParkList] = useState([])
     const navigate = useNavigate();
     const location = useLocation();
 
@@ -104,7 +104,7 @@ export const AuthProvider = ({ children }) =>
             ...user,
         });
         setUserData(newUsers);
-        setParkList(newUsers.parkList)
+        // setParkList(newUsers.parkList)
         login(user)
     })
         .catch((error) => {
@@ -112,13 +112,16 @@ export const AuthProvider = ({ children }) =>
     });
     };
 
+    const weeklyMilesList = userData.weeklyGoal
+    const parkList = userData.parkList
+
     const login = ( user ) => {
         // API CALL
             // set up another function to check login (login component calls this)
         setItemInLocalStorage('user', user );
         setUser(user);
-        setWeeklyMilesList(user.weeklyGoal)
         navigate("/profile");
+    
     }
 
     const logout = () => {
