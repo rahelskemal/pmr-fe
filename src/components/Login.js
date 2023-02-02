@@ -27,6 +27,7 @@ const Login = (props) => {
             
                 authUser = true;
                 login(user)
+                navigate('/profile')
                 
                 break;    
             }

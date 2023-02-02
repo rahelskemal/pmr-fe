@@ -122,10 +122,10 @@ export const routes = [
                 element: <FourOhFour />,
                 path: "/404",
             },
-            // {
-            //     element: <UserProfile />,
-            //     path: "/profile"
-            // },
+            {
+                element: <UserProfile />,
+                path: "/profile"
+            },
             { 
                 element: <Navigate to="/404" replace />,
                 path: "*",

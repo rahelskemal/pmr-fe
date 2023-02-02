@@ -104,7 +104,6 @@ export const AuthProvider = ({ children }) =>
             ...user,
         });
         setUserData(newUsers);
-        setWeeklyMilesList(newUsers.weeklyGoal)
         setParkList(newUsers.parkList)
         login(user)
     })
@@ -118,6 +117,7 @@ export const AuthProvider = ({ children }) =>
             // set up another function to check login (login component calls this)
         setItemInLocalStorage('user', user );
         setUser(user);
+        setWeeklyMilesList(user.weeklyGoal)
         navigate("/profile");
     }
 
@@ -132,7 +132,8 @@ export const AuthProvider = ({ children }) =>
         login,
         logout,
         AddUser,
-        userData
+        userData,
+        weeklyMilesList
     };
 
     return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
