@@ -58,6 +58,7 @@ export const AuthProvider = ({ children }) =>
             zip: user.zip_code,
             weeklyGoal: user.weekly_goal,
             parkList: user.nearby_parks,
+            goal:user.goal
             };
     } 
 
@@ -75,7 +76,8 @@ export const AuthProvider = ({ children }) =>
             state: user.state,
             zip_code: user.zip,
             weekly_goal: user.weeklyGoal,
-            nearby_parks: user.parkList
+            nearby_parks: user.parkList,
+            goal: user.goal
             
         }
     }
@@ -98,6 +100,7 @@ export const AuthProvider = ({ children }) =>
             state: "",
             weeklyGoal: "",
             parkList: "",
+            goal: "",
             ...user,
         });
         setUserData(newUsers);

@@ -15,9 +15,9 @@ const Register = (props) => {
     const [zip, setZipcode] = useState('');
     const [startDate, setStartDate] = useState('');
     const [goalDate, setGoalDate] = useState('');
+    const [goal, setGoal] = useState('')
     const navigate = useNavigate();
     const { AddUser } = useAuth();
-
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -33,13 +33,14 @@ const Register = (props) => {
         zip,
         state,
         })
-        // navigate('/create')
+
         
     };
-    // console.log(props.onFormSwitch)
+
     return (
         <div className="auth-form-cont">
             <NavBar />
+            < div className="container"> 
             <form onSubmit={handleSubmit}>
                 <div className="form-group">
                     <label hmtlfor="firstName">First Name</label>
@@ -73,17 +74,26 @@ const Register = (props) => {
                     <label hmtlfor="state">State</label>
                     <input value={state} onChange={(e) => setState(e.target.value)}type="text" className="form-control" id="text" aria-describedby="zipcode"></input>
                 </div>
-                <div className="form-group">
+                <div className="form-group col-md-4" >
+                    <label hmtlfor="state">Goal</label>
+                    <select id="inputState" class="form-control">
+                        <option selected value={goal} onChange={(e) => setGoal(e.target.value)}type="text" className="form-control" id="text" aria-describedby="goal">Choose a race...</option> <option>Half Marathon</option> value={goal} onChange={(e) => setGoal(e.target.value)}type="text" className="form-contr
+                    </select>
+                </div>
+                <div className="form-group col-md-4">
                     <label hmtlfor="start date">Start Date</label>
                     <input value={startDate} onChange={(e) => setStartDate(e.target.value)}type="date" className="form-control" id="text" aria-describedby="start date"></input>
                 </div>
-                <div className="form-group">
-                    <label hmtlfor="goal date">Goal Date</label>
-                    <input value={goalDate} onChange={(e) => setGoalDate(e.target.value)}type="date" className="form-control" id="text" aria-describedby="goal date"></input>
+                <div className="form-group col-md-4">
+                    <label hmtlfor="goal date">Please select an end date within four months from your start date</label>
+                    <input value={goalDate} onChange={(e) => setGoalDate(e.target.value)}type="date" className="form-control" id="text" aria-describedby="Please select an end date within four months from start date"></input>
                 </div>
                 <button type="submit" className="btn btn-primary">Register</button>
             </form>
+            </div>
+            <div className="container">
             <button onClick={()=> navigate('/login')}> Already have an account? Log in here.</button>
+            </div>        
         </div>
         
     )
