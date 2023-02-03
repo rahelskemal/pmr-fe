@@ -1,6 +1,7 @@
 
+import NavBar from "../components/NavBar";
 import WeeklyGoal from "../components/WeeklyGoal";
-
+import ParkList from "../components/ParkList";
 
 const UserProfile = () => {
     // const { userData, logIn, logOut } = useOutletContext();
@@ -10,7 +11,9 @@ const UserProfile = () => {
 
     return (
         <div>
+            <NavBar />
             <WeeklyGoal />
+            <ParkList />
         </div>
     );
 };

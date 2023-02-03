@@ -70,7 +70,7 @@ const NewUserForm = (props) => {
         zip: event.target.value});
     };
         
-    const Kurl = "http://127.0.0.1:5000/"
+    const Kurl = "https://planmyrun.herokuapp.com/users"
 
     const handleFormSubmit = async (event) => {
         event.preventDefault();

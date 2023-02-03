@@ -4,45 +4,41 @@ import { useLocation, useNavigate } from "react-router-dom"
 import axios from 'axios';
 
 
-const Kurl = "http://127.0.0.1:5000/users"
+const Kurl = "https://planmyrun.herokuapp.com/users"
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) =>
 {
     const [userData, setUserData] = useState([]);
     const [user, setUser] = useState(null);
-    // const [weeklyMilesList, setWeeklyMilesList] = useState([]) 
-    // const [parkList, setParkList] = useState([])
     const navigate = useNavigate();
     const location = useLocation();
 
-    useEffect (() => { 
-        if (location.pathname !== "/register" && location.pathname !== "/login"){
-            const lsUser = getItemFromLocalStorage('user');
+    // useEffect (() => { 
+    //     if (location.pathname !== "/register" && location.pathname !== "/login"){
+    //         const lsUser = getItemFromLocalStorage('user');
 
-            if(lsUser) {
-                setUser(lsUser)
-                navigate(location.pathname);
-            } else {
-                navigate("/login");
-            }
-        } else {
-            navigate(location.pathname);
-        }
-    }, []);
+    //         if(lsUser) {
+    //             setUser(lsUser)
+    //             navigate(location.pathname);
+    //         } else {
+    //             navigate("/login");
+    //         }
+    //     } else {
+    //         navigate(location.pathname);
+    //     }
+    // }, []);
 
+    
     useEffect(() => {
-        axios
-        .get(Kurl)
-        .then((response) => {
-            const newUsers = response.data.map((user) => {
+        const getData = async () => { 
+            const result = await axios.get(Kurl);
+            const newUsers = result.data.map((user) => { 
                 return convertsnaketocamel(user);
             });
             setUserData(newUsers);
-            })
-        .catch((error) => {
-            console.log(error);
-        });
+        } 
+        getData()
     }, []);
         console.log(userData)
 
@@ -112,8 +108,8 @@ export const AuthProvider = ({ children }) =>
     });
     };
 
-    const weeklyMilesList = userData.weeklyGoal
-    const parkList = userData.parkList
+    // const weeklyMilesList = user.weeklyGoal
+    // const parkList = user.parkList
 
     const login = ( user ) => {
         // API CALL
@@ -136,7 +132,7 @@ export const AuthProvider = ({ children }) =>
         logout,
         AddUser,
         userData,
-        weeklyMilesList
+        // weeklyMilesList
     };
 
     return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
