@@ -14,20 +14,20 @@ export const AuthProvider = ({ children }) =>
     const navigate = useNavigate();
     const location = useLocation();
 
-    // useEffect (() => { 
-    //     if (location.pathname !== "/register" && location.pathname !== "/login"){
-    //         const lsUser = getItemFromLocalStorage('user');
+    useEffect (() => { 
+        if (location.pathname !== "/register" && location.pathname !== "/login"){
+            const lsUser = getItemFromLocalStorage('user');
 
-    //         if(lsUser) {
-    //             setUser(lsUser)
-    //             navigate(location.pathname);
-    //         } else {
-    //             navigate("/login");
-    //         }
-    //     } else {
-    //         navigate(location.pathname);
-    //     }
-    // }, []);
+            if(lsUser) {
+                setUser(lsUser)
+                navigate(location.pathname);
+            } else {
+                navigate("/login");
+            }
+        } else {
+            navigate(location.pathname);
+        }
+    }, []);
 
     
     useEffect(() => {
@@ -100,7 +100,6 @@ export const AuthProvider = ({ children }) =>
             ...user,
         });
         setUserData(newUsers);
-        // setParkList(newUsers.parkList)
         login(user)
     })
         .catch((error) => {
@@ -108,8 +107,6 @@ export const AuthProvider = ({ children }) =>
     });
     };
 
-    // const weeklyMilesList = user.weeklyGoal
-    // const parkList = user.parkList
 
     const login = ( user ) => {
         // API CALL

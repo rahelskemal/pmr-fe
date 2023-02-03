@@ -8,7 +8,6 @@ const WeeklyGoal = () => {
     return (
         <div>
             <div>
-                <NavBar />
             </div>
             <ul>
                 {user?.weeklyGoal && user?.weeklyGoal.map((miles, index) => (
