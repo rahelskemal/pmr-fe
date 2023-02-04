@@ -6,6 +6,7 @@ import Register from './components/Register';
 import UserProfile  from "./pages/UserProfile";
 import FourOhFour from "./pages/404";
 import Layout from "./components/Layout";
+// import NewRegister from './pages/CreateNewUser'
 import { AuthProvider } from "./hooks/useAuth";
 
 
@@ -53,8 +54,8 @@ export const routes = [
                 path: "/login",
             },
             // {
-            //     element: <App />,
-            //     path: "/login",
+            //     element: <NewRegister />,
+            //     path: "/create",
             // },
             {
                 element: <Register />,

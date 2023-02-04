@@ -1,6 +1,8 @@
 //if user's first time signing in then they fill out the form otherwise, they see their results here
 //layout is rendered here + userform + userprofile 
+
 import NavBar from "../components/NavBar";
+// import './Dashboard.css'
 
 
 const Dashboard = () => {
@@ -16,7 +18,7 @@ const Dashboard = () => {
             </div>
         </div>
         <div>
-            <h2> How does it work?</h2>
+            <h2 className ="headtext"> Created for New Runners who are ready to embark on their first LONG run!</h2>
         </div>
         </secion>
     )

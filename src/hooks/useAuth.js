@@ -16,7 +16,7 @@ export const AuthProvider = ({ children }) =>
     const location = useLocation();
 
     useEffect (() => { 
-        if (location.pathname !== "/register" && location.pathname !== "/login"){
+        if (location.pathname !== "/register" && location.pathname !== "/login" && location.pathname !== "/" ){
             const lsUser = getItemFromLocalStorage('user');
 
             if(lsUser) {
@@ -124,7 +124,7 @@ export const AuthProvider = ({ children }) =>
     const logout = () => {
         setUser(null)
         setItemInLocalStorage('user', null)
-        navigate("/login")
+        navigate("/")
     };
 
     const value = {

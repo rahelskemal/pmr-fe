@@ -20,7 +20,7 @@ const NavBar = () => {
                 <div className="navbar-nav">
                     <a className="nav-link active" href="/">Home <span className="sr-only">(current)</span></a>
                     <a className="nav-link" href="/profile">My Profile</a>
-                    <a className="nav-link" href="/create">Create Profile</a>
+                    <a className="nav-link" href="/register">Create Profile</a>
                     {user && <button onClick={logout}>Log Out</button>}
                 </div>
             </div>
