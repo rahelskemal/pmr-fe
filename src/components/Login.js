@@ -40,6 +40,7 @@ const Login = (props) => {
     return (
         <div>
             <NavBar />
+            <div className="container">
             <form onSubmit={handleSubmit}>
                 <div className="form-group">
                     <label htmlFor="email">Email</label>
@@ -54,6 +55,7 @@ const Login = (props) => {
             <button onClick={() => navigate('/register')}> 
             Don't have an account? Register here. 
             </button>
+            </div>
         </div>
         
     )

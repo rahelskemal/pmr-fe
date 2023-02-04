@@ -1,0 +1,28 @@
+
+
+.headtext {
+    color: rgb(10, 160, 47);
+    text-align: center;
+    font-family: Helvetica;
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    font-weight: bold;
+}
+
+.footer {
+    margin-top: auto;
+}
+
+.foottext {
+    font-weight: bold;
+    font-family: Helvetica;
+}
+
+.button {
+    text-align: center;  
+    border: 7px solid red;  
+    width: 300px;  
+    height: 200px;  
+    padding-top: 100px; 
+}

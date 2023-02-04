@@ -2,7 +2,8 @@
 //layout is rendered here + userform + userprofile 
 
 import NavBar from "../components/NavBar";
-// import './Dashboard.css'
+import './Dashboard.css';
+
 
 
 const Dashboard = () => {
@@ -19,7 +20,16 @@ const Dashboard = () => {
         </div>
         <div>
             <h2 className ="headtext"> Created for New Runners who are ready to embark on their first LONG run!</h2>
+            <div classname = "button">
+                <button className="mainpagebutton"> Create a profile today!
+            </button>
         </div>
+        </div>
+        
+        <footer> 
+            <span className="foottext"> Made with care by Rahel Kemal C18 </span>
+        </footer>
+
         </secion>
     )
 }
