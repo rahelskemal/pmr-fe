@@ -9,9 +9,9 @@ const WeeklyGoal = () => {
         <div>
             <div>
             </div>
-            <ul>
+            <ul className ="weekcontainer">
                 {user?.weeklyGoal && user?.weeklyGoal.map((miles, index) => (
-                <li key={index}> Week {index + 1}: {miles.toFixed(1)} miles</li>
+                <ul className= "week" key={index}> Week {index + 1}: {miles.toFixed(1)} miles</ul>
 ))}
                 </ul>
         </div>

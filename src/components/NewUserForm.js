@@ -158,52 +158,6 @@ const NewUserForm = (props) => {
                     </form>
                     </div>
                 
-            {/* <h2>Create a New Profile</h2>
-            <form className="new-user-form__form" onSubmit={handleFormSubmit}>
-                <label htmlFor="firstName">First Name:</label>
-                <input
-                name="fristName"
-                type="text"
-                value={formFields.firstName}
-                onChange={handleInfoChange}
-                required
-                />
-                <label htmlFor="lastName">Last Name</label>
-                <input
-                name="lastName"
-                type="text"
-                value={formFields.lastName}
-                onChange={handleInfoChange}
-                required
-                />
-                <label htmlFor="street">Street Address</label>
-                <input
-                name="street"
-                type="text"
-                value={formFields.street}
-                onChange={handleInfoChange}
-                required
-                />
-                <label htmlFor="city">City</label>
-                <input
-                name="city"
-                type="text"
-                value={formFields.city}
-                onChange={handleInfoChange}
-                required
-                />
-                <label htmlFor="state">State Name</label>
-                <input
-                name="state"
-                type="text"
-                value={formFields.state}
-                onChange={handleInfoChange}
-                required
-                />
-                <button className="new-user-form__submit" type="submit">
-                    Submit
-                </button> */}
-            {/* </form> */}
     </section>
 );
 };

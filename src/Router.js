@@ -12,10 +12,6 @@ import { AuthProvider } from "./hooks/useAuth";
 
 
 
-
-
-
-
 const MainLayout = () => {
 
 

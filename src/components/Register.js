@@ -44,11 +44,11 @@ const Register = (props) => {
             <form onSubmit={handleSubmit}>
                 <div className="form-group">
                     <label hmtlfor="firstName">First Name</label>
-                    <input value={firstName} onChange={(e) => setFirstName(e.target.value)}type="text" className="form-control" id="text" aria-describedby="firstname"></input>
+                    <input value={firstName} onChange={(e) => setFirstName(e.target.value)}type="text" className="form-control" id="text1" aria-describedby="firstname"></input>
                 </div>
                 <div className="form-group">
                     <label hmtlfor="lastName">Last Name</label>
-                    <input value={lastName} onChange={(e) => setLastName(e.target.value)}type="text" className="form-control" id="text" aria-describedby="lastname"></input>
+                    <input value={lastName} onChange={(e) => setLastName(e.target.value)}type="text" className="form-control" id="text2" aria-describedby="lastname"></input>
                 </div>
                 <div className="form-group">
                     <label hmtlfor="email">Email</label>
@@ -60,33 +60,33 @@ const Register = (props) => {
                 </div>
                 <div className="form-group">
                     <label hmtlfor="street">Street</label>
-                    <input value={street} onChange={(e) => setStreet(e.target.value)}type="text" className="form-control" id="text" aria-describedby="street"></input>
+                    <input value={street} onChange={(e) => setStreet(e.target.value)}type="text" className="form-control" id="text3" aria-describedby="street"></input>
                 </div>
                 <div className="form-group">
                     <label hmtlfor="city">City</label>
-                    <input value={city} onChange={(e) => setCity(e.target.value)}type="text" className="form-control" id="text" aria-describedby="city"></input>
+                    <input value={city} onChange={(e) => setCity(e.target.value)}type="text" className="form-control" id="text4" aria-describedby="city"></input>
                 </div>
                 <div className="form-group">
                     <label hmtlfor="zipcode">Zip Code</label>
-                    <input value={zip} onChange={(e) => setZipcode(e.target.value)}type="number" className="form-control" id="text" aria-describedby="zipcode"></input>
+                    <input value={zip} onChange={(e) => setZipcode(e.target.value)}type="number" className="form-control" id="text5" aria-describedby="zipcode"></input>
                 </div>
                 <div className="form-group">
                     <label hmtlfor="state">State</label>
-                    <input value={state} onChange={(e) => setState(e.target.value)}type="text" className="form-control" id="text" aria-describedby="zipcode"></input>
+                    <input value={state} onChange={(e) => setState(e.target.value)}type="text" className="form-control" id="text6" aria-describedby="zipcode"></input>
                 </div>
                 <div className="form-group col-md-4" >
                     <label hmtlfor="state">Goal</label>
                     <select id="inputState" class="form-control">
-                        <option selected value={goal} onChange={(e) => setGoal(e.target.value)}type="text" className="form-control" id="text" aria-describedby="goal">Choose a race...</option> <option>Half Marathon</option> value={goal} onChange={(e) => setGoal(e.target.value)}type="text" className="form-contr
-                    </select>
+                        <option value={goal} onChange={(e) => setGoal(e.target.value)}type="text" className="form-control" id="text7" aria-describedby="goal">Choose a race...</option> <option>Half Marathon</option> value={goal} onChange={(e) => setGoal(e.target.value)}
+                    </select>              
                 </div>
                 <div className="form-group col-md-4">
                     <label hmtlfor="start date">Start Date</label>
-                    <input value={startDate} onChange={(e) => setStartDate(e.target.value)}type="date" className="form-control" id="text" aria-describedby="start date"></input>
+                    <input value={startDate} onChange={(e) => setStartDate(e.target.value)}type="date" className="form-control" id="text8" aria-describedby="start date"></input>
                 </div>
                 <div className="form-group col-md-4">
                     <label hmtlfor="goal date">Please select an end date within four months from your start date</label>
-                    <input value={goalDate} onChange={(e) => setGoalDate(e.target.value)}type="date" className="form-control" id="text" aria-describedby="Please select an end date within four months from start date"></input>
+                    <input value={goalDate} onChange={(e) => setGoalDate(e.target.value)}type="date" className="form-control" id="text9" aria-describedby="Please select an end date within four months from start date"></input>
                 </div>
                 <button type="submit" className="btn btn-primary">Register</button>
             </form>

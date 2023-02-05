@@ -4,7 +4,7 @@ import { useLocation, useNavigate } from "react-router-dom"
 import axios from 'axios';
 
 
-const Kurl = "https://planmyrun.herokuapp.com/users"
+const Kurl = "https://cors-anywhere.herokuapp.com/https://planmyrun.herokuapp.com/users"
 // const Kurl = 'http://127.0.0.1:5000/users'
 const AuthContext = createContext();
 
@@ -44,13 +44,15 @@ export const AuthProvider = ({ children }) =>
         console.log(userData)
 
     const convertsnaketocamel = (user) => {
+    
+        
         return {
             id: user.id,
             firstName: user.first_name,
             lastName: user.last_name,
             email: user.email,
             password: user.password,
-            startDate: user.desired_start_date,
+            startDate:user.desired_start_date,
             goalDate: user.goal_date,
             city: user.city,
             street: user.street,
@@ -62,7 +64,10 @@ export const AuthProvider = ({ children }) =>
             };
     } 
 
+
     const convertCamelToSnake = (user) => {
+
+
         return {
             id:user.id,
             first_name: user.firstName,
