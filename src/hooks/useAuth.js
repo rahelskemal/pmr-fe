@@ -119,7 +119,7 @@ export const AuthProvider = ({ children }) => {
     };
 
     const CreateNewProfile = (user) =>{
-        axios.patch(`${Kurl}, ${user.id}`, convertCamelToSnake(user))
+        axios.patch(`${Kurl}/${user.id}`, convertCamelToSnake(user))
         .then((response) => { 
         console.log(response.data);
         const newData = [...newProfile];

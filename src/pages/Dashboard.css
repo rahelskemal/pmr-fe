@@ -1,13 +1,23 @@
 
+.fullpage {
+    color: green;
+    
+}
+
+.wholepage {
+    background-color: #c98411;
+    
+}
 
 .headtext {
-    color: rgb(10, 160, 47);
+    color:green;
     text-align: center;
     font-family: Helvetica;
+    justify-content: center;
     min-height: 60vh;
     display: flex;
     flex-direction: column;
-    font-weight: bold;
+    /* font-weight: bold; */
 }
 
 .footer {

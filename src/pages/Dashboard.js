@@ -3,12 +3,17 @@
 
 import NavBar from "../components/NavBar";
 import './Dashboard.css';
+import { useNavigate } from "react-router-dom";
 
 
 
 const Dashboard = () => {
+    const navigate = useNavigate();
+
+    
     return (
-        <secion>
+        <div className="wholepage">
+        <secion className="fullpage">
         <div className="jumbotron jumbotron-fluid">
             <div>
                 <NavBar />
@@ -19,10 +24,13 @@ const Dashboard = () => {
             </div>
         </div>
         <div>
-            <h2 className ="headtext"> Created for New Runners who are ready to embark on their first LONG run!</h2>
-            <div classname = "button">
-                <button className="mainpagebutton"> Create a profile today!
-            </button>
+            <div className ="headtext"> 
+                {/* <h2> Created for new runners </h2> */}
+                <h2>Taking the thinking out so you can focus on</h2>
+                <h2>RUNNING</h2>
+            <div>
+                <button  type="button" className="btn btn-info" onClick={()=> navigate('/register')}> Create a profile today! </button>
+            </div>
         </div>
         </div>
         
@@ -31,6 +39,7 @@ const Dashboard = () => {
         </footer>
 
         </secion>
+        </div>
     )
 }
 
