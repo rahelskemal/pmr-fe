@@ -32,17 +32,21 @@ const NearbyParks = () => {
         params: {
             address: fullAddress
         }
+        
         })
         .then(response => {
             const lat = response.data.results[0].geometry.location.lat;
             const lng = response.data.results[0].geometry.location.lng;
             setLocation(`${lat},${lng}`);
+            
+            
         })
         .catch(error => {
             console.error(error);
         });
     }, [fullAddress]);
-
+    
+    console.log(location)
     useEffect(() => {
         axios.get(URL, {
         params: {
@@ -55,7 +59,7 @@ const NearbyParks = () => {
         .then(response => {
             setParks(response.data.results);
             console.log(response.data.results);
-            console.log("hello")
+            // console.log("hello")
         })
         .catch(error => {
             console.error(error);
@@ -88,8 +92,8 @@ const NearbyParks = () => {
             <div>
             <h1> hello from MapComponent</h1>
             <ul> 
-                {parksList.map((parksList) => (
-                <ul key={parksList}> Parks You can Run to: {parksList}</ul>
+                {parksList.map((parks) => (
+                <ul key={parks}> Parks You can Run to: {parks}</ul>
                 ))}    
                 </ul>
             </div>

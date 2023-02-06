@@ -4,14 +4,15 @@ import { useLocation, useNavigate } from "react-router-dom"
 import axios from 'axios';
 
 
-const Kurl = "https://cors-anywhere.herokuapp.com/https://planmyrun.herokuapp.com/users"
+const Kurl = "https://planmyrun.herokuapp.com/users"
 // const Kurl = 'http://127.0.0.1:5000/users'
 const AuthContext = createContext();
 
-export const AuthProvider = ({ children }) =>
-{
+export const AuthProvider = ({ children }) => {
+
     const [userData, setUserData] = useState([]);
     const [user, setUser] = useState(null);
+    const [newProfile, setNewProfile] = useState(null);
     const navigate = useNavigate();
     const location = useLocation();
 
@@ -59,7 +60,7 @@ export const AuthProvider = ({ children }) =>
             state: user.state,
             zip: user.zip_code,
             weeklyGoal: user.weekly_goal,
-            parkList: user.nearby_parks,
+            // parkList: user.nearby_parks,
             goal:user.goal
             };
     } 
@@ -81,7 +82,7 @@ export const AuthProvider = ({ children }) =>
             state: user.state,
             zip_code: user.zip,
             weekly_goal: user.weeklyGoal,
-            nearby_parks: user.parkList,
+            // nearby_parks: user.parkList,
             goal: user.goal
             
         }
@@ -93,6 +94,7 @@ export const AuthProvider = ({ children }) =>
         console.log(response)
         const newUsers = [...userData];
         newUsers.push({
+            id: "",
             firstName: "",
             lastName: "",
             email: "",
@@ -104,7 +106,7 @@ export const AuthProvider = ({ children }) =>
             zip: "",
             state: "",
             weeklyGoal: "",
-            parkList: "",
+            // parkList: "",
             goal: "",
             ...user,
         });
@@ -116,6 +118,18 @@ export const AuthProvider = ({ children }) =>
     });
     };
 
+    const CreateNewProfile = (user) =>{
+        axios.patch(`${Kurl}, ${user.id}`, convertCamelToSnake(user))
+        .then((response) => { 
+        console.log(response.data);
+        const newData = [...newProfile];
+        setNewProfile(newData);
+    })   
+        .catch ((error ) => {
+        console.log(error);
+    });
+}
+
 
     const login = ( user ) => {
         // API CALL
@@ -124,7 +138,7 @@ export const AuthProvider = ({ children }) =>
         setUser(user);
         navigate("/profile");
     
-    }
+    };
 
     const logout = () => {
         setUser(null)
@@ -138,7 +152,7 @@ export const AuthProvider = ({ children }) =>
         logout,
         AddUser,
         userData,
-        // weeklyMilesList
+        CreateNewProfile
     };
 
     return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
@@ -146,4 +160,4 @@ export const AuthProvider = ({ children }) =>
 
 export const useAuth = () => {
     return useContext(AuthContext);
-};
+}; 

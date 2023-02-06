@@ -8,6 +8,7 @@ import FourOhFour from "./pages/404";
 import Layout from "./components/Layout";
 // import NewRegister from './pages/CreateNewUser'
 import { AuthProvider } from "./hooks/useAuth";
+import NewProfile from "./components/NewProfile";
 
 
 
@@ -49,10 +50,10 @@ export const routes = [
                 element: <LogIn />,
                 path: "/login",
             },
-            // {
-            //     element: <NewRegister />,
-            //     path: "/create",
-            // },
+            {
+                element: <NewProfile />,
+                path: "/create",
+            },
             {
                 element: <Register />,
                 path: "/register",
