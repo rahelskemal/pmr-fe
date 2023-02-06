@@ -4,6 +4,7 @@ import NavBar from "./NavBar";
 import { useAuth } from '../hooks/useAuth';
 // import UserComponent from "../Router";
 import axios from "axios";
+import './LoginPg.css';
 
 const Kurl = "https://cors-anywhere.herokuapp.com/https://planmyrun.herokuapp.com/users"
 
@@ -64,25 +65,35 @@ const Login = (props) => {
 
     return (
         <div>
+        <div>
             <NavBar />
-            <div className="container">
-            <form onSubmit={handleSubmit}>
-                <div className="form-group">
-                    <label htmlFor="email">Email</label>
-                    <input value={email} onChange={(e) => setEmail(e.target.value)}type="email" className="form-control" placeholder="youremail@gmail.com" id="email" aria-describedby="emailHelp"></input>
-                </div>
-                <div className="form-group">
-                    <label htmlFor="password">Password</label>
-                    <input value={password} onChange={(e) => setPass(e.target.value)}type="password" className="form-control" id="exampleInputPassword1"></input>
-                </div>
-                <button type="submit" className="btn btn-primary">Log In</button>
-            </form>
-            <button onClick={() => navigate('/register')}> 
-            Don't have an account? Register here. 
-            </button>
+        </div>
+        <div className="fullpage">
+            <div className="container h-100">
+                <div className="row h-100 justify-content-center align-items-center">
+                    <div className="col-10 col-md-8 col-lg-6">
+                    <form onSubmit={handleSubmit}>
+                        <div className="form-group">
+                            <label htmlFor="email">Email</label>
+                            <input value={email} onChange={(e) => setEmail(e.target.value)}type="email" className="form-control" placeholder="youremail@gmail.com" id="email" aria-describedby="emailHelp"></input>
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="password">Password</label>
+                            <input value={password} onChange={(e) => setPass(e.target.value)}type="password" className="form-control" id="exampleInputPassword1"></input>
+                        </div>
+                    <button type="submit" className="btn btn-primary">Log In</button>
+                    </form>
+                    <div className= "button2">
+                <button className="actualbutton" onClick={() => navigate('/register')}> 
+                Don't have an account? Register here. 
+                </button>
             </div>
         </div>
-        
+
+        </div> 
+    </div>
+    </div>
+    </div>
     )
 };
 

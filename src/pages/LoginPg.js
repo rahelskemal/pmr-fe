@@ -3,10 +3,11 @@ import Login from '../components/Login';
 // import UserComponent from '../Router';
 
 
+
 const LogIn = () => {
 
     return (
-        <div>
+        <div className='fullpage'>
             <Login />
         </div>
     );
