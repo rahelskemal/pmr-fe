@@ -29,55 +29,57 @@ const NearbyParks = () => {
 
     useEffect(() => {
         axios.get(GEOCODE_URL, {
-        params: {
-            address: fullAddress
-        }
-        
+            params: {
+                address: fullAddress
+            }
         })
         .then(response => {
-            const lat = response.data.results[0].geometry.location.lat;
-            const lng = response.data.results[0].geometry.location.lng;
-            setLocation(`${lat},${lng}`);
-        
-            
-            
+            console.log(response)
+            if (response.data.results.length > 0) {
+                const lat = response.data.results[0].geometry.location.lat;
+                const lng = response.data.results[0].geometry.location.lng;
+                setLocation([lat,lng]);
+            };
         })
         .catch(error => {
             console.error(error);
         });
-    }, []);
+    }, [fullAddress]);
     
     console.log(location)
-    // const locObj = {lat:location[0], lng:location[1]};
-    // console.log(locObj)
 
+    // location[0], location[1]
+    // 34.0679244,-118.236664
     useEffect(() => {
-        const address = new window.google.maps.LatLng(34.0679244,-118.2366644);
-        console.log(address)
-        const infowindow = new window.google.maps.InfoWindow();
-        const map = new window.google.maps.Map(document.getElementById("map"), {
-            center: address,
-            zoom: 15,
-        });
+        // console.log(location)
+            // first check if location is null, exit 
+        if (location) {
+            const address = new window.google.maps.LatLng(location[0], location[1]);
+            console.log(address)
+            const infowindow = new window.google.maps.InfoWindow();
+            const map = new window.google.maps.Map(document.getElementById("map"), {
+                center: address,
+                zoom: 15,
+            });
+            const request = {
+                location: address,
+                radius: "1000",
+                type: ["park"],
+            };
     
-        const request = {
-            location: address,
-            radius: "1000",
-            type: ["park"],
-        };
-    
-        const service = new window.google.maps.places.PlacesService(map);
-        service.nearbySearch(request, (results, status) => {
-            if (status === window.google.maps.places.PlacesServiceStatus.OK) {
-                for (let i = 0; i < results.length; i++) {
-                    createMarker(results[i], infowindow, map);
-            }
+            const service = new window.google.maps.places.PlacesService(map);
+            service.nearbySearch(request, (results, status) => {
+                if (status === window.google.maps.places.PlacesServiceStatus.OK) {
+                    for (let i = 0; i < results.length; i++) {
+                        createMarker(results[i], infowindow, map);
+                    }
+                }
+            });
         }
-        });
-    }, []);
-    
-        return <div id="map" style={{ height: "400px", width: "100%" }} />;
-    };
+    }, [location]);
+
+    return <div id="map" style={{ height: "400px", width: "100%" }} />;
+};
     
     const createMarker = (place, infowindow, map) => {
         const marker = new window.google.maps.Marker({
@@ -90,7 +92,7 @@ const NearbyParks = () => {
         infowindow.open(map, marker);
     });
     };
-    
+
 
 export default NearbyParks;
 

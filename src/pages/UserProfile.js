@@ -22,11 +22,17 @@ const UserProfile = () => {
     return (
         <div className="userprofile">
             <NavBar />
-            <h1 className="trainingdates"> You are training from : {formattedStartDate} -  {formattedGoalDate}</h1>
-            <WeeklyGoal />
-            <h3> Discover Parks Near You </h3>
-            <NearbyParks />
-            {/* <ParkList /> */}
+            <div className="bodycontainer">
+                <div className="body">
+                    <h1 className="trainingdates"> You are training from : {formattedStartDate} -  {formattedGoalDate}</h1>
+                    <WeeklyGoal />
+                    </div>
+                <div className="body">
+                    <h3> Discover Parks Near You </h3>
+                    <NearbyParks />
+                </div>
+            </div>
+            
         </div>
     );
 };
