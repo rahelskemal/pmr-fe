@@ -1,6 +1,7 @@
 import React from 'react';
 import { useAuth } from '../hooks/useAuth';
 import NavBar from './NavBar';
+import "./WeeklyGoal.css"
 
 const WeeklyGoal = () => {
     const { user } = useAuth();

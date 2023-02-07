@@ -4,6 +4,7 @@ import WeeklyGoal from "../components/WeeklyGoal";
 import ParkList from "../components/ParkList";
 import NearbyParks from "../components/NearbyParks";
 import { useAuth } from '../hooks/useAuth';
+import "./UserProfile.css";
 
 
 const UserProfile = () => {
@@ -19,10 +20,11 @@ const UserProfile = () => {
     const goalDatenew = new Date(goalDate);
     const formattedGoalDate = goalDatenew.toDateString()
     return (
-        <div>
+        <div className="userprofile">
             <NavBar />
-            <h1> You are training from : {formattedStartDate} -  {formattedGoalDate}</h1>
+            <h1 className="trainingdates"> You are training from : {formattedStartDate} -  {formattedGoalDate}</h1>
             <WeeklyGoal />
+            <h3> Discover Parks Near You </h3>
             <NearbyParks />
             {/* <ParkList /> */}
         </div>
