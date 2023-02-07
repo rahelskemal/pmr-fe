@@ -19,8 +19,8 @@ const NavBar = () => {
             <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div className="navbar-nav">
                     <a className="nav-link active" href="/">Home <span className="sr-only">(current)</span></a>
-                    <a className="nav-link" href="/profile">My Profile</a>
-                    <a className="nav-link" href="/create">Create Profile</a>
+                    <a className="nav-link" href="/profile">My Plan</a>
+                    <a className="nav-link" href="/create">Update Plan</a>
                     {user && <button onClick={logout}>Log Out</button>}
                 </div>
             </div>

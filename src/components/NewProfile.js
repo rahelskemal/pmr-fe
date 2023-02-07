@@ -11,9 +11,9 @@ const NewProfile = (props) => {
     const [zip, setZipcode] = useState('');
     const [startDate, setStartDate] = useState('');
     const [goalDate, setGoalDate] = useState('');
-    const [goal, setGoal] = useState('')
+    // const [goal, setGoal] = useState('')
     const navigate = useNavigate();
-    const { CreateNewProfile } = useAuth();
+    const { CreateNewProfile, user } = useAuth();
 
 
 
@@ -21,6 +21,7 @@ const NewProfile = (props) => {
         e.preventDefault();
         // console.log(email);
         CreateNewProfile({
+        id:user.id,
         startDate,
         goalDate,
         city,
@@ -28,7 +29,7 @@ const NewProfile = (props) => {
         zip,
         state,
         })
-        
+        navigate('/profile')
         
 };
 
@@ -53,12 +54,12 @@ return (
                 <label hmtlfor="state">State</label>
                 <input value={state} onChange={(e) => setState(e.target.value)}type="text" className="form-control" id="text16" aria-describedby="zipcode"></input>
             </div>
-            <div className="form-group col-md-4" >
+            {/* <div className="form-group col-md-4" >
                 <label hmtlfor="state">Goal</label>
                 <select id="inputState" class="form-control">
                     <option value={goal} onChange={(e) => setGoal(e.target.value)}type="text" className="form-control" id="text17" aria-describedby="goal">Choose a race...</option> <option>Half Marathon</option> value={goal} onChange={(e) => setGoal(e.target.value)}
                 </select>              
-            </div>
+            </div> */}
             <div className="form-group col-md-4">
                 <label hmtlfor="start date">Start Date</label>
                 <input value={startDate} onChange={(e) => setStartDate(e.target.value)}type="date" className="form-control" id="text18" aria-describedby="start date"></input>
@@ -67,11 +68,11 @@ return (
                 <label hmtlfor="goal date">Please select an end date within four months from your start date</label>
                 <input value={goalDate} onChange={(e) => setGoalDate(e.target.value)}type="date" className="form-control" id="text19" aria-describedby="Please select an end date within four months from start date"></input>
             </div>
-            <button type="submit" className="btn btn-primary">Create New Plan</button>
+            <button type="submit" className="btn btn-primary">Update Plan</button>
         </form>
         </div>
         <div className="container">
-        <button onClick={()=> navigate('/profile')}> Already have an account? Log in here.</button>
+        {/* <button > </button> */}
         </div>        
     </div>
     

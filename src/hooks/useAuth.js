@@ -12,7 +12,7 @@ export const AuthProvider = ({ children }) => {
 
     const [userData, setUserData] = useState([]);
     const [user, setUser] = useState(null);
-    const [newProfile, setNewProfile] = useState(null);
+    // const [newProfile, setNewProfile] = useState(null);
     const navigate = useNavigate();
     const location = useLocation();
 
@@ -42,7 +42,7 @@ export const AuthProvider = ({ children }) => {
         } 
         getData()
     }, []);
-        console.log(userData)
+        // console.log(userData)
 
     const convertsnaketocamel = (user) => {
     
@@ -118,13 +118,24 @@ export const AuthProvider = ({ children }) => {
     });
     };
 
+    
     const CreateNewProfile = (user) =>{
-        axios.patch(`${Kurl}/${user.id}`, convertCamelToSnake(user))
+        // console.log(user)
+        axios.patch(`${Kurl}/${user.id}`,convertCamelToSnake(user))
         .then((response) => { 
-        console.log(response.data);
-        const newData = [...newProfile];
-        setNewProfile(newData);
-    })   
+        // console.log(response.data);
+        const newData = [...userData];
+        newData.push({
+            startDate: "",
+            goalDate: "",
+            city: "",
+            street: "",
+            zip: "",
+            state: "",
+            ...user,
+        });
+        setUserData(newData);
+    }) 
         .catch ((error ) => {
         console.log(error);
     });
