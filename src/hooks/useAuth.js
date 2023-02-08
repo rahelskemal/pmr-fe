@@ -12,6 +12,7 @@ export const AuthProvider = ({ children }) => {
 
     const [userData, setUserData] = useState([]);
     const [user, setUser] = useState(null);
+    const [updateData, setUpdateData] = useState([])
     // const [newProfile, setNewProfile] = useState(null);
     const navigate = useNavigate();
     const location = useLocation();
@@ -119,12 +120,12 @@ export const AuthProvider = ({ children }) => {
     };
 
     
-    const CreateNewProfile = (user) =>{
+    const UpdateProfile = (user) =>{
         // console.log(user)
         axios.patch(`${Kurl}/${user.id}`,convertCamelToSnake(user))
         .then((response) => { 
         // console.log(response.data);
-        const newData = [...userData];
+        const newData = [...updateData];
         newData.push({
             startDate: "",
             goalDate: "",
@@ -134,8 +135,16 @@ export const AuthProvider = ({ children }) => {
             state: "",
             ...user,
         });
-        setUserData(newData);
+        setUpdateData(newData);
+        user.startDate = newData.startDate;
+        user.goalDate = newData.goalDate;
+        user.city = newData.city;
+        user.street = newData.street;
+        user.zip = newData.zip;
+        user.state = newData.state;
+        setUserData(newData)
     }) 
+        // console.log(user.city)
         .catch ((error ) => {
         console.log(error);
     });
@@ -163,7 +172,8 @@ export const AuthProvider = ({ children }) => {
         logout,
         AddUser,
         userData,
-        CreateNewProfile
+        UpdateProfile, 
+        updateData,
     };
 
     return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

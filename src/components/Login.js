@@ -74,14 +74,14 @@ const Login = (props) => {
                     <div className="col-10 col-md-8 col-lg-6">
                     <form onSubmit={handleSubmit}>
                         <div className="form-group">
-                            <label htmlFor="email">Email</label>
+                            <label htmlFor="email" className="text-light" >Email</label>
                             <input value={email} onChange={(e) => setEmail(e.target.value)}type="email" className="form-control" placeholder="youremail@gmail.com" id="email" aria-describedby="emailHelp"></input>
                         </div>
                         <div className="form-group">
-                            <label htmlFor="password">Password</label>
+                            <label htmlFor="password" className="text-light">Password</label>
                             <input value={password} onChange={(e) => setPass(e.target.value)}type="password" className="form-control" id="exampleInputPassword1"></input>
                         </div>
-                    <button type="submit" className="btn btn-primary">Log In</button>
+                    <button type="submit" className="btn btn-light">Log In</button>
                     </form>
                     <div className= "button2">
                 <button className="actualbutton" onClick={() => navigate('/register')}> 

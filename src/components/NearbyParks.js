@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useAuth } from '../hooks/useAuth';
+import { useAuth } from '../hooks/useAuth'
 
-const YOUR_API_KEY = 'AIzaSyBqKewTKWtFlWo7dl-rlclEgyVP2RYkNG8'
+// process.env.REACT_APP_GOOGLE_MAPS_API_KEY
+const YOUR_API_KEY = process.env.REACT_APP_GOOGLE_MAPS_API_KEY
+console.log(YOUR_API_KEY)
 const URL = 'https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json'
 
 
@@ -78,7 +80,7 @@ const NearbyParks = () => {
         }
     }, [location]);
 
-    return <div id="map" style={{ height: "400px", width: "100%" }} />;
+    return <div id="map" style={{ height: "600px", width: "100%" }} />;
 };
     
     const createMarker = (place, infowindow, map) => {
@@ -88,7 +90,7 @@ const NearbyParks = () => {
     });
     
         window.google.maps.event.addListener(marker, "click", () => {
-        infowindow.setContent(place.name || "");
+        infowindow.setContent(place.name, place.formatted_address || "");
         infowindow.open(map, marker);
     });
     };

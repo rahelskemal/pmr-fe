@@ -1,16 +1,16 @@
 
 .fullpage {
-    color: green;
+    color: rgb(108, 38, 38);
     
 }
 
 .wholepage {
-    background-color: #c98411;
+    background-color:rgb(108, 38, 38);
     
 }
 
 .headtext {
-    color:green;
+    color:whitesmoke;
     text-align: center;
     font-family: Helvetica;
     justify-content: center;
@@ -35,4 +35,5 @@
     width: 300px;  
     height: 200px;  
     padding-top: 100px; 
+    
 }

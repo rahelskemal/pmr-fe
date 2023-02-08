@@ -1,4 +1,4 @@
-import React from 'react';
+import {React, useState } from 'react';
 import { useAuth } from '../hooks/useAuth';
 import NavBar from './NavBar';
 import "./WeeklyGoal.css"
