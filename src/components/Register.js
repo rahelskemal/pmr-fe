@@ -32,6 +32,7 @@ const Register = (props) => {
         street,
         zip,
         state,
+        goal
         })
 
         
